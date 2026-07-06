@@ -80,7 +80,7 @@ Training with 80\% of the data and testing with the remaining 20\% showed very g
 $R^2$ tells us that over 99\% of the variation of people's monthly charges can be attributed to the presence or absence of the 10 add-ons. The model was only off by about \$1 on average during testing, between the monthly charge it predicted and the customer's actual monthly charge.
 
 \newpage
-Below is the model's $\omega_i$'s it had learned from the training. Each of these numbers is the expected dollar increase of a customer's monthly plan if they 
+Below is the model's $\omega_i$'s it had learned from the training. Each of these numbers is the expected dollar increase of a customer's monthly plan if they were to add that corresponding service. $\omega_0$ from the equation above is the y-intercept of the prediction. In other words, it is expected payment of someone who has 0 on all the indicator variables and does not have a plan or any add-ons. The model ended up with a $\omega_0$ value of -0.112 which is close to ideal (an ideal perfect model would have 0, since someone with no plan and no add-ons aka. a non-customer, should pay nothing).
 
 \begin{figure}[htbp]
    \centering
@@ -89,7 +89,7 @@ Below is the model's $\omega_i$'s it had learned from the training. Each of thes
     \label{fig:my_image}
 \end{figure}
 
-
+These results show that this 10 variable linear regression performs very well at predicting what a customer may be paying given what add-ons they have. Using these results, the Scikit-learn Linear Regression predict function can be used to implement the linear regression equation with these $\omega$ values, so that for a theoretical new customer with any combination of add-ons (even a combination not found verbatim in the dataset), a predicted monthly cost can be calculated.
 
 
 
